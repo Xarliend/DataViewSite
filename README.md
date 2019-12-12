@@ -2,7 +2,7 @@
 - 使用Django以及Django REST framework所撰寫的網頁後端。
 - 包含以下幾個部分：
     * DataView: 網頁主體。
-    * apiapi服務。
+    * api: api服務。
     * NewsPage: 瀏覽所抓取的新聞資料。
     * Crawler: 使用Scrapy撰寫之爬蟲程式。
 
