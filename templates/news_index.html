@@ -1,0 +1,36 @@
+{% extends 'base_index.html' %}
+
+{% block details %}
+<div id='data_title'></div>
+<div id='data_author'></div>
+<div id='data_date'></div>
+<div id='data_content'></div>
+{% endblock %}
+
+{% block list %}
+{% for news in news_list %}
+    <div style="display: flex;flex-direction: column;padding: 8px" >
+    <a class='newsblock' value='{{ news.title }}' href='#'>
+        {{ news.title }} <br> {{ news.date }}</a>
+    </div>
+{% endfor %}
+{% endblock list %}
+
+{% block AJAX %}
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="	crossorigin="anonymous"></script>
+	<script>
+		$('.newsblock').click(function(){
+			var newsid = $(this).attr('value');
+			$.ajax({
+				url: newsid,
+				success: function( content ) {
+					$( "#data_title" ).html( content.title );
+                    $( "#data_author" ).html( content.author );
+                    $( "#data_date" ).html( content.date );
+                    $( "#data_content" ).html( content.content.replace(/\n/g, "<br>") );
+				}
+			});
+		});
+	</script>
+{% endblock AJAX %}
