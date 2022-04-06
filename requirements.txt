@@ -24,7 +24,7 @@ Scrapy==1.8.0
 service-identity==18.1.0
 six==1.13.0
 sqlparse==0.2.4
-Twisted==19.10.0
+Twisted==22.2.0
 w3lib==1.21.0
 whitenoise==4.1.4
 zope.interface==4.7.1
